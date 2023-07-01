@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  dev:
+    image: ceres_ubuntu:latest
+    build:
+      context: ../
+      dockerfile: ./docker/ceres.Dockerfile    
+    tty: true 
+    container_name: ceres_dev
+    network_mode: host
+    privileged: false
+    volumes:
+      - ../:/hellocres
+    command: bash -c "/bin/bash"
+
