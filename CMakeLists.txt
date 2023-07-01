@@ -34,9 +34,6 @@ target_link_libraries(multivariate ceres)
 add_executable(pitch_estimation small_pitch_estimation.cc)
 target_link_libraries(pitch_estimation ceres)
 
-add_executable(se3_estimation se3_estimation.cc)
-target_link_libraries(se3_estimation ceres)
-
 add_executable(se3_estimation_malloc se3_estimation_malloc.cc)
 target_link_libraries(se3_estimation_malloc ceres)
 #
