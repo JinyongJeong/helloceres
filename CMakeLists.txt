@@ -18,33 +18,14 @@ if (BUILD_SHARED_LIBS)
   remove_definitions(-DCERES_BUILDING_SHARED_LIBRARY)
 endif()
 
-add_executable(helloworld helloworld.cc)
-target_link_libraries(helloworld ceres)
+# Build all example file in the example folder
+file(GLOB_RECURSE example_sources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/example example/*.cc)
+foreach(example_source ${example_sources})
+	string(REPLACE ".cc" "" example_name ${example_source})
+        set(example_binary_name ${example_name})
 
-#################
-add_executable(add_residual_1 add_residual_1.cc)
-target_link_libraries(add_residual_1 ceres)
+        add_executable(${example_binary_name} example/${example_source})
+        target_link_libraries(${example_binary_name} ceres)
+endforeach()
 
-add_executable(add_residual_2 add_residual_2.cc)
-target_link_libraries(add_residual_2 ceres)
 
-add_executable(multivariate multivariate.cc)
-target_link_libraries(multivariate ceres)
-
-add_executable(pitch_estimation small_pitch_estimation.cc)
-target_link_libraries(pitch_estimation ceres)
-
-add_executable(se3_estimation_malloc se3_estimation_malloc.cc)
-target_link_libraries(se3_estimation_malloc ceres)
-#
-#add_executable(helloceres_pose2d helloceres_pose_2d.cc)
-#target_link_libraries(helloceres_pose2d ceres)
-#
-#add_executable(helloceres_pose2d_fixed_a helloceres_pose_2d_fixed_a.cc)
-#target_link_libraries(helloceres_pose2d_fixed_a ceres)
-#
-#add_executable(helloceres_pose2d_fixed_b helloceres_pose_2d_fixed_b.cc)
-#target_link_libraries(helloceres_pose2d_fixed_b ceres)
-#################
-add_executable(pass_by_address auxiliary/pass_by_address.cpp)
-target_link_libraries(pass_by_address ceres)
