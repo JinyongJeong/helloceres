@@ -41,16 +41,14 @@ namespace ceres::examples {
 class AngleManifold {
  public:
   template <typename T>
-  bool Plus(const T* x_radians,
-            const T* delta_radians,
+  bool Plus(const T* x_radians, const T* delta_radians,
             T* x_plus_delta_radians) const {
     *x_plus_delta_radians = NormalizeAngle(*x_radians + *delta_radians);
     return true;
   }
 
   template <typename T>
-  bool Minus(const T* y_radians,
-             const T* x_radians,
+  bool Minus(const T* y_radians, const T* x_radians,
              T* y_minus_x_radians) const {
     *y_minus_x_radians =
         NormalizeAngle(*y_radians) - NormalizeAngle(*x_radians);

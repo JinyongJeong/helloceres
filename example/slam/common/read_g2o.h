@@ -91,14 +91,13 @@ void ReadConstraint(std::ifstream* infile,
 // where the quaternion is in Hamilton form.
 // A constraint is defined as follows:
 //
-// EDGE_SE3:QUAT ID_a ID_b x_ab y_ab z_ab q_x_ab q_y_ab q_z_ab q_w_ab I_11 I_12 I_13 ... I_16 I_22 I_23 ... I_26 ... I_66 // NOLINT
+// EDGE_SE3:QUAT ID_a ID_b x_ab y_ab z_ab q_x_ab q_y_ab q_z_ab q_w_ab I_11 I_12
+// I_13 ... I_16 I_22 I_23 ... I_26 ... I_66 // NOLINT
 //
 // where I_ij is the (i, j)-th entry of the information matrix for the
 // measurement. Only the upper-triangular part is stored. The measurement order
 // is the delta position followed by the delta orientation.
-template <typename Pose,
-          typename Constraint,
-          typename MapAllocator,
+template <typename Pose, typename Constraint, typename MapAllocator,
           typename VectorAllocator>
 bool ReadG2oFile(const std::string& filename,
                  std::map<int, Pose, std::less<int>, MapAllocator>* poses,

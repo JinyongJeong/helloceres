@@ -127,6 +127,7 @@ struct ExponentialResidual {
     residual[0] = y_ - exp(m[0] * x_ + c[0]);
     return true;
   }
+
  private:
   const double x_;
   const double y_;
@@ -140,9 +141,7 @@ int main(int argc, char** argv) {
     problem.AddResidualBlock(
         new AutoDiffCostFunction<ExponentialResidual, 1, 1, 1>(
             new ExponentialResidual(data[2 * i], data[2 * i + 1])),
-        nullptr,
-        &m,
-        &c);
+        nullptr, &m, &c);
   }
   Solver::Options options;
   options.max_num_iterations = 100;

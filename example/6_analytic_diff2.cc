@@ -33,8 +33,8 @@
 // Minimize 0.5 (10 - x)^2 using analytic jacobian matrix.
 // Tutor: jjy0923@gmail.com (JinyongJeong)
 
-#include <vector>
 #include <cmath>
+#include <vector>
 #include "ceres/ceres.h"
 #include "glog/logging.h"
 using ceres::CostFunction;
@@ -51,15 +51,14 @@ class QuadraticCostFunction
     : public SizedCostFunction<1 /* number of residuals */,
                                1 /* size of first parameter */> {
  public:
-  bool Evaluate(double const* const* parameters,
-                double* residuals,
+  bool Evaluate(double const* const* parameters, double* residuals,
                 double** jacobians) const override {
     double x = parameters[0][0];
     // f(x) = x^2- 30x + 10
-    residuals[0] = ceres::pow(x,2) - 30 *x + 10;
-    // f'(x) = 2x - 30. 
+    residuals[0] = ceres::pow(x, 2) - 30 * x + 10;
+    // f'(x) = 2x - 30.
     if (jacobians != nullptr && jacobians[0] != nullptr) {
-      jacobians[0][0] = 2*x -30;
+      jacobians[0][0] = 2 * x - 30;
     }
     return true;
   }

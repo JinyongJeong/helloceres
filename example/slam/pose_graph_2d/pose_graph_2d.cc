@@ -82,14 +82,11 @@ void BuildOptimizationProblem(const std::vector<Constraint2d>& constraints,
     // Ceres will take ownership of the pointer.
     ceres::CostFunction* cost_function = PoseGraph2dErrorTerm::Create(
         constraint.x, constraint.y, constraint.yaw_radians, sqrt_information);
-    problem->AddResidualBlock(cost_function,
-                              loss_function,
-                              &pose_begin_iter->second.x,
-                              &pose_begin_iter->second.y,
-                              &pose_begin_iter->second.yaw_radians,
-                              &pose_end_iter->second.x,
-                              &pose_end_iter->second.y,
-                              &pose_end_iter->second.yaw_radians);
+    problem->AddResidualBlock(
+        cost_function, loss_function, &pose_begin_iter->second.x,
+        &pose_begin_iter->second.y, &pose_begin_iter->second.yaw_radians,
+        &pose_end_iter->second.x, &pose_end_iter->second.y,
+        &pose_end_iter->second.yaw_radians);
 
     problem->SetManifold(&pose_begin_iter->second.yaw_radians, angle_manifold);
     problem->SetManifold(&pose_end_iter->second.yaw_radians, angle_manifold);

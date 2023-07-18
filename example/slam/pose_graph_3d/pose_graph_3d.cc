@@ -47,8 +47,7 @@ namespace {
 // Constructs the nonlinear least squares optimization problem from the pose
 // graph constraints.
 void BuildOptimizationProblem(const VectorOfConstraints& constraints,
-                              MapOfPoses* poses,
-                              ceres::Problem* problem) {
+                              MapOfPoses* poses, ceres::Problem* problem) {
   CHECK(poses != nullptr);
   CHECK(problem != nullptr);
   if (constraints.empty()) {
@@ -73,8 +72,7 @@ void BuildOptimizationProblem(const VectorOfConstraints& constraints,
     ceres::CostFunction* cost_function =
         PoseGraph3dErrorTerm::Create(constraint.t_be, sqrt_information);
 
-    problem->AddResidualBlock(cost_function,
-                              loss_function,
+    problem->AddResidualBlock(cost_function, loss_function,
                               pose_begin_iter->second.p.data(),
                               pose_begin_iter->second.q.coeffs().data(),
                               pose_end_iter->second.p.data(),

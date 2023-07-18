@@ -19,14 +19,14 @@ CFORMATTER=${CFORMATTER:-clang-format-11}
 
 $CFORMATTER --version
 
-DIRECTORIES_TO_CHECK="."
+DIRECTORIES_TO_CHECK="example"
 
 list=$(
 	(git ls-files $GIT_LSFILES_FLAGS -- $DIRECTORIES_TO_CHECK on ; \
 	 git status --porcelain -- $DIRECTORIES_TO_CHECK 2>/dev/null \
 	 | grep -E '^A' \
 	 | sed -e "s,^A,,") \
-	| grep -E '\.cpp$|\.h$'
+	| grep -E '\.cc$|\.h$'
 )
 
 declare -i TOTAL_NUM_LINES=0

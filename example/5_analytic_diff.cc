@@ -34,8 +34,8 @@
 
 // Tutor: jjy0923@gmail.com (JinyongJeong)
 
-#include <vector>
 #include <cmath>
+#include <vector>
 #include "ceres/ceres.h"
 #include "glog/logging.h"
 using ceres::CostFunction;
@@ -49,8 +49,7 @@ class QuadraticCostFunction
     : public SizedCostFunction<1 /* number of residuals */,
                                1 /* size of first parameter */> {
  public:
-  bool Evaluate(double const* const* parameters,
-                double* residuals,
+  bool Evaluate(double const* const* parameters, double* residuals,
                 double** jacobians) const override {
     double x = parameters[0][0];
     // f(x) = 10 - x.
