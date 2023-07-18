@@ -1,5 +1,4 @@
-//
-// Tutorial Author: shapelim@kaist.ac.kr (임형태)
+// Tutor: jjy0923@gmail.com (JinyongJeong)
 
 #include "ceres/ceres.h"
 #include "glog/logging.h"

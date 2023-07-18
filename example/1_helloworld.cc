@@ -2,6 +2,7 @@
 //
 // Minimize 0.5 (10 - x)^2 using jacobian matrix computed using
 // automatic differentiation.
+// Tutor: jjy0923@gmail.com (JinyongJeong)
 
 #include "ceres/ceres.h"
 #include "glog/logging.h"

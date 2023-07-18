@@ -28,6 +28,8 @@
 //
 // Author: keir@google.com (Keir Mierle)
 
+// Tutor: jjy0923@gmail.com (JinyongJeong)
+
 #include <vector>
 #include "ceres/ceres.h"
 #include "glog/logging.h"

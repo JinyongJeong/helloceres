@@ -31,6 +31,9 @@
 // A simple example of using the Ceres minimizer.
 //
 // Minimize 0.5 (10 - x)^2 using analytic jacobian matrix.
+
+// Tutor: jjy0923@gmail.com (JinyongJeong)
+
 #include <vector>
 #include <cmath>
 #include "ceres/ceres.h"

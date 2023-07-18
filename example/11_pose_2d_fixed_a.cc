@@ -28,7 +28,7 @@
 //
 // Author: keir@google.com (Keir Mierle)
 //
-// Tutorial Authors: shapelim@kaist.ac.kr (임형태) && 2minus1@kaist.ac.kr (허수민)
+// Tutor: jjy0923@gmail.com (JinyongJeong)
 
 #include "ceres/ceres.h"
 #include "glog/logging.h"
@@ -63,11 +63,14 @@ class Pose2dErrorTerm{
     residual[0] = p_diff(0);
     residual[1] = p_diff(1);
     residual[2] = theta_diff;
-    // // ##############중요##############
-    // 이 부분을 더 이상 쓰지 않으니까 코멘트해서 없애줌
-    // residual[3] = 3.000001 - a[0];
-    // residual[4] = 1.000001 - a[1];
-    // residual[5] = 0.523599000001 - a[2];
+    // ##############중요##############
+    // ceres_pose_2d에서 optimization을 하면 a와 b가 둘 다 움직여버림.
+    // 따라서 a를 고정시키기 위해 a에 대한 residual을 cost function에 추가함으로써 
+    // a가 최대한 고정되도록할 수 있음. 
+    // 비고: 이 방식은 잘 쓰이지 않습니다. 다음 예제에서 더 흔히 쓰는 방식을 소개함.
+    residual[3] = 3.000001 - a[0];
+    residual[4] = 1.000001 - a[1];
+    residual[5] = 0.523599000001 - a[2];
     return true;
   }
   private:
@@ -83,11 +86,11 @@ int main(int argc, char** argv) {
   double * a = (double *)malloc(3*sizeof(double));
   a[0] = 3.0;
   a[1] = 1.0;
-  a[2] = 0.523599; // radian
+  a[2] = 0.523599; // radian (30 degree)
   double * b = (double *)malloc(3*sizeof(double));
   b[0] = 5.1;
   b[1] = 2.9;
-  b[2] = 0.79;
+  b[2] = 0.79; // radian (45 degree)
 
   double * ab_measured = (double *)malloc(3*sizeof(double));
   ab_measured[0] = 2.73205;
@@ -100,16 +103,10 @@ int main(int argc, char** argv) {
   
   Problem problem;
 
-  // // ##############중요##############
-  // 이전 예제에서는 <6,3,3>이었지만 이제는 <3,3,3>이 됩니다.
   CostFunction* cost_function =
-      new AutoDiffCostFunction<Pose2dErrorTerm, 3, 3, 3>(new Pose2dErrorTerm(ab_measured));
+      new AutoDiffCostFunction<Pose2dErrorTerm, 6, 3, 3>(new Pose2dErrorTerm(ab_measured));
   
   problem.AddResidualBlock(cost_function, NULL, a, b);
-  // // ##############중요##############
-  // SetParameterBlockConstant()라는 함수를 이용하여 a라는 변수(parameter)가 수정되지 않도록 고정합니다.
-  // 결과에서 보면 a는 바뀌지 않고, b만 바뀌는 것을 확인할 수 있습니다.
-  problem.SetParameterBlockConstant(a);
 
   // Run the solver!
   Solver::Options options;

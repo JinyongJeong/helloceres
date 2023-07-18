@@ -19,7 +19,7 @@ if (BUILD_SHARED_LIBS)
 endif()
 
 # Build all example file in the example folder
-file(GLOB_RECURSE example_sources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/example example/*.cc)
+file(GLOB example_sources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/example example/*.cc)
 foreach(example_source ${example_sources})
 	string(REPLACE ".cc" "" example_name ${example_source})
         set(example_binary_name ${example_name})
@@ -28,4 +28,4 @@ foreach(example_source ${example_sources})
         target_link_libraries(${example_binary_name} ceres)
 endforeach()
 
-
+add_subdirectory(example/slam)

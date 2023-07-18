@@ -27,6 +27,9 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 // Author: sameeragarwal@google.com (Sameer Agarwal)
+
+// Tutor: jjy0923@gmail.com (JinyongJeong)
+
 #include "ceres/ceres.h"
 #include "glog/logging.h"
 using ceres::AutoDiffCostFunction;
