@@ -59,7 +59,14 @@ make all -j8
 ./1_helloworld
 ```
 
-pose graph tutorial 의 경우 실행, visualization 에 대한 script를 제공한다. 
+pose graph tutorial 의 경우 실행, visualization 에 대한 script를 제공한다. `show_pose_graph_2d.sh` 스크립트는 최적화 결과를 GUI를 통해 보여준다. docker 안에서 GUI 관련된 컴포넌트를 실행시키기 위해서는 다음의 명령어를 host에서 실행해줘야 한다. 
+
+```
+xhost +
+```
+
+이제 아래 script를 통해 실행할 수 있다. 
+
 
 ```
 ./script/run_pose_graph_2d.sh
