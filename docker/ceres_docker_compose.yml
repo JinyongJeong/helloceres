@@ -11,6 +11,6 @@ services:
     network_mode: host
     privileged: false
     volumes:
-      - ../:/hellocres
+      - ../:/helloceres
     command: bash -c "/bin/bash"
 
