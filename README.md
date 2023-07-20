@@ -71,10 +71,10 @@ xhost +
 
 
 ```
-./script/run_pose_graph_2d.sh
-./script/show_pose_graph_2d.sh
-./script/run_pose_graph_3d.sh
-./script/show_pose_graph_3d.sh
+./script/run_pose_graph_2d.sh   // Run 2d graph optimize with data & export result
+./script/visualize_pose_graph_2d_result.sh  // Show 2d graph optimization result with GUI 
+./script/run_pose_graph_3d.sh   // Run 3d graph optimize with data & export result
+./script/visualize_pose_graph_3d_result.sh  // Show 3D graph optimization result with GUI
 ```
 
 ---
