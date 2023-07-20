@@ -78,17 +78,19 @@ xhost +
 
 # Tutorial Contents
 
-1_hellowworld.cc
-2_add_residual_1.cc
-3_add_residual_2.cpp
-4_multivariate.cc
-5_analytic_diff.cc
-6_analytic_diff2.cc
-7_analytic_diff3.cc
-8_analytic_and_autodiff.cc
-9_curve_fitting.cc
-10_curve_fitting2.cc
-11_pose_2d_fixed_a.cc
-12_pose_2d_fixed_b.cc
-13_pose_graph_2d
-14_pose_graph_3d
+```
+1_helloworld.cc : 가장 기본적인 1차식 최적화
+2_add_residual_1.cc : Residual 을 추가하는 방법 1
+3_add_residual_2.cpp : Residual 을 추가하는 방법 2
+4_multivariate.cc : 다변수로 입력과 Residual 추가하는 방법
+5_analytic_diff.cc : Jacobian 을 추가하여 Analytic 하게 최적화 하는 방법 1 
+6_analytic_diff2.cc :Jacobian 을 추가하여 Analytic 하게 최적화 하는 방법 2
+7_analytic_diff3.cc : Jacobian 을 추가하여 Analytic 하게 최적화 하는 방법 3
+8_analytic_and_autodiff.cc : Analytic 방법과 Numeric 하게 최적화 하는 방법 비교
+9_curve_fitting.cc : Exponential Curve fitting
+10_curve_fitting2.cc : 2차식 Curve Fitting
+11_pose_2d_fixed_a.cc : Residual 을 이용한 parameter 고정하는 방법
+12_pose_2d_fixed_b.cc : 함수를 이용한 parameter 고정하는 방법
+13_pose_graph_2d : 2D graph Optimization
+14_pose_graph_3d : 3D graph Optimization
+```
