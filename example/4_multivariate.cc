@@ -10,7 +10,7 @@ using ceres::Problem;
 using ceres::Solve;
 using ceres::Solver;
 
-// 예제 3. 하나의 cost function에서 multi-variable 인풋으로 받기
+// 하나의 cost function에서 multi-variable 인풋으로 받기
 
 // 실제 복잡한 문제는 다변수로 구성되어 있기 때문에, 다변수를 인풋을 받는 법에
 // 대해 이해해야 한다. 하나의 cost functor에서 다변수 optimization해보기 vector
@@ -39,14 +39,15 @@ int main(int argc, char **argv) {
 
   // vector b (1.2, 1.1, 1.01) 선언
   double *b = (double *)malloc(3 * sizeof(double));
-  b[0] = 1.2;
-  b[1] = 1.1;
-  b[2] = 1.01;
+  b[0] = 3.0;
+  b[1] = 3.0;
+  b[2] = 3.0;
 
   const std::vector<double> initial_a = {a[0], a[1], a[2]};
   const std::vector<double> initial_b = {b[0], b[1], b[2]};
 
   Problem problem;
+
   // ############## 매우 중요 ###############
   // line 61에서는 이제 3, 3, 3이 되었는데,
   // 첫 번째 숫자는 optimization의 cost function을 구성하는 residual의 갯수를

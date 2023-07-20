@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
   };
 
   std::vector<std::pair<double, double>> data =
-      GenerateData(-10.0, 10.0, 0.3, function, 5.0);
+      GenerateData(-10.0, 10.0, 3.0, function, 1.0);
 
   for (int i = 0; i < data.size(); i++) {
     std::cout << data[i].first << " " << data[i].second << " " << std::endl;

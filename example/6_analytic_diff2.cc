@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
   google::InitGoogleLogging(argv[0]);
   // The variable to solve for with its initial value. It will be
   // mutated in place by the solver.
-  double x = 0.5;
+  double x = 5.0;
   const double initial_x = x;
   // Build the problem.
   Problem problem;
