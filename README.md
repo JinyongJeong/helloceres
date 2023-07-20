@@ -22,7 +22,7 @@ Updated author: Jinyong Jeong (jjy0923@gmail.com)
 sudo wget -qO- http://get.docker.com/ | sh
 ```
 
-## 2. Docker compose 설치dd
+## 2. Docker compose 설치
 
 ```
 sudo apt-get install -y --no-install-recommends curl python3-pip nano python3-dev
