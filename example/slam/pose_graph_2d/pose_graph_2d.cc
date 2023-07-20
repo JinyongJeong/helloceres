@@ -35,6 +35,8 @@
 
 // https://lucacarlone.mit.edu/datasets/
 
+// Tutorial Author: jjy0923@gmail.com
+
 #include <fstream>
 #include <iostream>
 #include <map>

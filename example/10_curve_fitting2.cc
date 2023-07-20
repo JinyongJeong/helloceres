@@ -31,6 +31,7 @@ std::vector<std::pair<double, double>> GenerateData(
 
 // Visualize Data (https://www.rapidtables.com/tools/scatter-plot.html)
 // clang-format on
+// Define function => a * x^2 + b * x + c
 struct CustomResidual {
   CustomResidual(double x, double y) : x_(x), y_(y) {}
   template <typename T>

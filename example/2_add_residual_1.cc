@@ -9,8 +9,6 @@ using ceres::Problem;
 using ceres::Solve;
 using ceres::Solver;
 
-// 예제 1. Cost function을 2개 생성해서 addResidualBlock 해보기
-
 // 첫 번째 cost function:  0.5 (10 - x)^2
 struct CostFunctor1 {
   template <typename T>

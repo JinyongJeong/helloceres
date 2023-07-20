@@ -59,7 +59,8 @@ namespace ceres::examples {
 // standard multiplicative error resulting in:
 //
 //   error = [ p_ab - \hat{p}_ab                 ]
-//           [ 2.0 * Vec(q_ab * \hat{q}_ab^{-1}) ]
+//           [ Vec(q_ab * \hat{q}_ab^{-1}) ]  -> Imagenary part will be all zero
+//           if the angle is zero
 //
 // where Vec(*) returns the vector (imaginary) part of the quaternion. Since
 // the measurement has an uncertainty associated with how accurate it is, we
@@ -98,11 +99,11 @@ class PoseGraph3dErrorTerm {
 
     // Compute the residuals.
     // [ position         ]   [ delta_p          ]
-    // [ orientation (3x1)] = [ 2 * delta_q(0:2) ]
+    // [ orientation (3x1)] = [ delta_q(0:2) ]
     Eigen::Map<Eigen::Matrix<T, 6, 1>> residuals(residuals_ptr);
     residuals.template block<3, 1>(0, 0) =
         p_ab_estimated - t_ab_measured_.p.template cast<T>();
-    residuals.template block<3, 1>(3, 0) = T(2.0) * delta_q.vec();
+    residuals.template block<3, 1>(3, 0) = delta_q.vec();
 
     // Scale the residuals by the measurement uncertainty.
     residuals.applyOnTheLeft(sqrt_information_.template cast<T>());

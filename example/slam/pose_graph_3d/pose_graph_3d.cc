@@ -28,6 +28,8 @@
 //
 // Author: vitus@google.com (Michael Vitus)
 
+// Tutorial Author: jjy0923@gmail.com
+
 #include <fstream>
 #include <iostream>
 #include <string>

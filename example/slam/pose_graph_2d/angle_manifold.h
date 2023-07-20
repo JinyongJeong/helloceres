@@ -38,6 +38,9 @@
 namespace ceres::examples {
 
 // Defines a manifold for updating the angle to be constrained in [-pi to pi).
+// Reference: http://ceres-solver.org/nnls_modeling.html#manifolds
+// WHAT IS The MANIFOLD????
+
 class AngleManifold {
  public:
   template <typename T>
