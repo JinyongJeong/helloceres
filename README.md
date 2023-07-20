@@ -67,12 +67,14 @@ pose graph tutorial 의 경우 실행, visualization 에 대한 script를 제공
 xhost +
 ```
 
-이제 아래 script를 통해 실행할 수 있다. 
+이제 아래 script를 통해 실행할 수 있다. (2D graph optimization, 3D graph Optimization)
 
 
 ```
 ./script/run_pose_graph_2d.sh
 ./script/show_pose_graph_2d.sh
+./script/run_pose_graph_3d.sh
+./script/show_pose_graph_3d.sh
 ```
 
 ---
