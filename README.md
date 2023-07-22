@@ -11,6 +11,8 @@ Updated author: Jinyong Jeong (jjy0923@gmail.com)
 
 본 Tutorial 은 Docker를 사용하여 코드를 빌드하는 방식으로 진행한다.
 
+참고 PPT 자료 링크 (https://docs.google.com/presentation/d/1Bq4vjVZC1BSPy5gdlnpGKKmeATgcIO0zepqu7KX_YHc/edit?usp=sharing)
+
 
 # Installation
 
